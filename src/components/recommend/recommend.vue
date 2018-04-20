@@ -1,7 +1,7 @@
 <template>
   <div class="recommend">
     <div class="recommend-content">
-      <div class="slider-wrapper">
+      <div v-if="recommends.length" class="slider-wrapper">
         <slider>
           <div v-for="item in recommends ">
             <a :href="item.linkUrl">
@@ -14,7 +14,7 @@
         <h1 class="list-title">热门歌单推荐</h1>
         <ul></ul>
       </div>
-    </div>
+    </div>  
   </div>
 </template>
 
@@ -22,7 +22,7 @@
   import {getRecommend} from 'api/recommend'
   import {ERR_OK} from 'api/config'
   import Slider from 'base/slider/slider'
-
+  
   export default {
     data() {
       return {
